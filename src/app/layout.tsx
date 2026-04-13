@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
+import ThemeProvider from '@/components/ThemeProvider'
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -18,11 +19,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
+    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
       <body className="antialiased">
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   )

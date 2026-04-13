@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from "framer-motion"
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true)
@@ -108,7 +109,6 @@ export default function Header() {
 
             <div className="h-4 w-[1px] bg-border/60 mx-2" />
 
-
             <div className="flex items-center gap-6 text-[10px] text-muted font-mono uppercase tracking-[0.1em]">
               <div className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
@@ -117,6 +117,7 @@ export default function Header() {
               <div className="flex items-center gap-2 opacity-60">
                 <span>San José, C.R.</span>
               </div>
+              <ThemeToggle />
             </div>
           </div>
           
@@ -200,7 +201,10 @@ export default function Header() {
                   <span className="text-[10px] uppercase tracking-widest text-muted font-medium">Local Time</span>
                   <span className="text-[13px] font-mono">{time} — NI</span>
                 </div>
-                <span className="text-[10px] opacity-20 uppercase font-mono tracking-tighter italic whitespace-nowrap">© 2026 JEREMIAS COREA</span>
+                <div className="flex items-center gap-6">
+                  <ThemeToggle />
+                  <span className="text-[10px] opacity-20 uppercase font-mono tracking-tighter italic whitespace-nowrap">© 2026 JEREMIAS COREA</span>
+                </div>
               </div>
             </div>
           </motion.div>

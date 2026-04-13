@@ -5,6 +5,15 @@
   --foreground: #111111;
   --muted: #888888;
   --border: #e5e5e5;
+  --surface: #f0f0f0;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #666666;
+  --border: #222222;
+  --surface: #141414;
 }
 
 @theme inline {
@@ -12,8 +21,10 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-surface: var(--surface);
   --font-mono: var(--font-mono);
 }
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -22,6 +33,7 @@ body {
   line-height: 1.5;
   letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html.lenis,
