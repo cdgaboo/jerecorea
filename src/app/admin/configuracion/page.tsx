@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import FadeIn from '@/components/FadeIn'
 
 export default function SettingsPage() {
   const [saving, setSaving] = useState(false)
@@ -18,7 +19,7 @@ export default function SettingsPage() {
       const data = await res.json()
       const result = data.result?.data
       if (result) {
-        const s = JSON.parse(result.json)
+        const s = result
         setFormData({
           siteName: s.siteName || 'jerecorea',
           tagline: s.tagline || '',
@@ -36,7 +37,7 @@ export default function SettingsPage() {
     await fetch('/api/trpc/settings.save', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ input: formData }),
+      body: JSON.stringify(formData),
     })
     setSaving(false)
     alert('Guardado')
@@ -48,7 +49,7 @@ export default function SettingsPage() {
   if (!loaded) return <p className="text-muted font-mono text-sm">Cargando...</p>
 
   return (
-    <div>
+    <FadeIn className="pb-20">
       <h1 className="font-mono text-xl mb-8">Configuración</h1>
       <form onSubmit={handleSubmit} className="max-w-xl space-y-6">
         <div>
@@ -76,12 +77,12 @@ export default function SettingsPage() {
           ))}
           <button type="button" onClick={addSocialLink} className="font-mono text-xs text-muted hover:text-foreground mt-1">+ Agregar link</button>
         </div>
-        <div className="flex gap-3 pt-4">
-          <button type="submit" disabled={saving} className="font-mono text-sm bg-foreground text-background px-6 py-2 rounded hover:opacity-90 transition-opacity disabled:opacity-50">
-            {saving ? 'Guardando...' : 'Guardar'}
+        <div className="flex gap-3 pt-6">
+          <button type="submit" disabled={saving} className="font-mono text-[11px] uppercase tracking-widest bg-foreground text-background px-10 py-4 rounded-full hover:scale-[1.02] transition-all disabled:opacity-50">
+            {saving ? 'Guardando...' : 'Guardar Configuración'}
           </button>
         </div>
       </form>
-    </div>
+    </FadeIn>
   )
 }

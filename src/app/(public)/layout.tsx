@@ -4,17 +4,19 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: 'jerecorea',
-  description: 'Portfolio',
+  description: 'Creative Design & Development',
 }
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="mx-auto max-w-7xl px-6 py-12 flex-1">
-        {children}
-      </main>
-      <Footer />
+      <div className="w-full flex flex-col flex-1">
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </div>
     </div>
   )
 }

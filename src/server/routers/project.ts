@@ -19,13 +19,23 @@ export const projectRouter = router({
     slug: z.string(),
     subtitle: z.string().optional(),
     description: z.string().optional(),
+    titleEn: z.string().optional(),
+    subtitleEn: z.string().optional(),
+    descriptionEn: z.string().optional(),
     imageUrl: z.string().optional(),
+    hoverImageUrl: z.string().optional(),
     externalUrl: z.string().optional(),
     order: z.number().default(0),
     featured: z.boolean().default(false),
   })).mutation(async ({ input }) => {
-    await connectDB()
-    return Project.create(input)
+    try {
+      await connectDB()
+      const newProject = await Project.create(input)
+      return JSON.parse(JSON.stringify(newProject))
+    } catch (error) {
+      console.error('SERVER ERROR (project.create):', error)
+      throw error
+    }
   }),
 
   update: publicProcedure.input(z.object({
@@ -34,14 +44,23 @@ export const projectRouter = router({
     slug: z.string(),
     subtitle: z.string().optional(),
     description: z.string().optional(),
+    titleEn: z.string().optional(),
+    subtitleEn: z.string().optional(),
+    descriptionEn: z.string().optional(),
     imageUrl: z.string().optional(),
+    hoverImageUrl: z.string().optional(),
     externalUrl: z.string().optional(),
     order: z.number().default(0),
     featured: z.boolean().default(false),
   })).mutation(async ({ input }) => {
-    await connectDB()
-    const { id, ...data } = input
-    return Project.findByIdAndUpdate(id, data, { new: true }).lean()
+    try {
+      await connectDB()
+      const { id, ...data } = input
+      return await Project.findByIdAndUpdate(id, data, { new: true }).lean()
+    } catch (error) {
+      console.error('SERVER ERROR (project.update):', error)
+      throw error
+    }
   }),
 
   delete: publicProcedure.input(z.object({ id: z.string() })).mutation(async ({ input }) => {

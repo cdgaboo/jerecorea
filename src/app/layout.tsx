@@ -1,30 +1,29 @@
 import type { Metadata } from 'next'
-import { Bitcount_Prop_Single, Sora } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import SmoothScroll from '@/components/SmoothScroll'
 
-const bitcount = Bitcount_Prop_Single({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-bitcount',
-})
-
-const sora = Sora({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-sora',
+  weight: ['400', '500'],
+  variable: '--font-mono',
 })
 
 export const metadata: Metadata = {
   title: 'jerecorea',
-  description: 'Portfolio',
+  description: 'Creative Design & Development',
 }
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${bitcount.variable} ${sora.variable}`}>
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={jetbrainsMono.variable}>
+      <body className="antialiased">
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
+      </body>
     </html>
   )
 }
