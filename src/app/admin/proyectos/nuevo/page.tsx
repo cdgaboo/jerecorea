@@ -15,7 +15,6 @@ export default function NewProjectPage() {
   const [formData, setFormData] = useState({
     title: '', slug: '', subtitle: '', description: '', titleEn: '', subtitleEn: '', descriptionEn: '', imageUrl: '', hoverImageUrl: '', externalUrl: '', order: 0, featured: false,
   })
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSaving(true)
