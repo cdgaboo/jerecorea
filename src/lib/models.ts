@@ -11,6 +11,7 @@ const projectSchema = new mongoose.Schema({
   imageUrl: String,
   hoverImageUrl: String,
   externalUrl: String,
+  year: String,
   order: { type: Number, default: 0 },
   featured: { type: Boolean, default: false },
 }, { timestamps: true })

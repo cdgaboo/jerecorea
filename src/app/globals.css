@@ -16,7 +16,7 @@
   --surface: #141414;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
@@ -66,15 +66,50 @@ img {
   display: block;
 }
 
-
-.billboard-btn {
-  @apply border border-white/20 px-8 py-3 rounded-full transition-all duration-500 bg-transparent text-white;
-  /* Fallback standard CSS to ensure priority */
-  border-width: 1px !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+/* ── Custom Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
 
-.billboard-btn:hover {
-  background-color: #ffffff !important;
-  color: #111111 !important;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* ── Button Utilities ─────────────────────────────────────── */
+.btn-solid {
+  background: var(--foreground);
+  color: var(--background);
+  transition: opacity 0.25s ease;
+}
+.btn-solid:hover { opacity: 0.72; }
+
+.btn-inverted {
+  background: var(--background);
+  color: var(--foreground);
+  transition: opacity 0.25s ease;
+}
+.btn-inverted:hover { opacity: 0.82; }
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: border-color 0.25s ease;
+}
+.btn-outline:hover { border-color: var(--foreground); }

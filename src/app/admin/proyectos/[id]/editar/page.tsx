@@ -13,7 +13,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
   const router = useRouter()
   const [saving, setSaving] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [formData, setFormData] = useState({ id: '', title: '', slug: '', subtitle: '', description: '', titleEn: '', subtitleEn: '', descriptionEn: '', imageUrl: '', hoverImageUrl: '', externalUrl: '', order: 0, featured: false })
+  const [formData, setFormData] = useState({ id: '', title: '', slug: '', subtitle: '', description: '', titleEn: '', subtitleEn: '', descriptionEn: '', imageUrl: '', hoverImageUrl: '', externalUrl: '', year: '', order: 0, featured: false })
 
   useEffect(() => {
     (async () => {
@@ -35,6 +35,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
           imageUrl: p.imageUrl || '',
           hoverImageUrl: p.hoverImageUrl || '',
           externalUrl: p.externalUrl || '',
+          year: p.year || '',
           order: p.order || 0,
           featured: p.featured || false
         })
@@ -142,6 +143,10 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
             <label className={labelClass}>Display Order</label>
             <input type="number" value={formData.order} onChange={e => setFormData(p => ({ ...p, order: Number(e.target.value) }))} className={fieldClass} />
           </div>
+          <div>
+            <label className={labelClass}>Year</label>
+            <input value={formData.year} onChange={e => setFormData(p => ({ ...p, year: e.target.value }))} placeholder="2025" className={fieldClass} />
+          </div>
           <div className="flex items-end pb-3">
             <label className="flex items-center gap-2.5 cursor-pointer select-none">
               <input type="checkbox" checked={formData.featured} onChange={e => setFormData(p => ({ ...p, featured: e.target.checked }))} className="rounded" />
@@ -151,7 +156,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
         </div>
 
         <div className="flex gap-4 pt-2">
-          <button type="submit" disabled={saving} className="font-mono text-[11px] uppercase tracking-widest bg-foreground text-background px-10 py-4 hover:opacity-80 transition-opacity disabled:opacity-40">
+          <button type="submit" disabled={saving} className="btn-solid font-mono text-[11px] uppercase tracking-widest px-10 py-4 disabled:opacity-40">
             {saving ? 'Saving...' : 'Save Changes'}
           </button>
           <Link href="/admin/proyectos" className="font-mono text-[11px] uppercase tracking-widest text-muted hover:text-foreground px-6 py-4 flex items-center transition-colors">

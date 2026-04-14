@@ -121,19 +121,18 @@ export default async function HomePage() {
               <span className="opacity-40 italic">YOUR VISION</span>
             </h2>
             
-            <div className="flex flex-col md:flex-row gap-12 md:items-end justify-between pt-12">
-              <a 
-                href="mailto:jgalcorea@gmail.com" 
-                style={{ backgroundColor: '#ffffff', color: '#111111' }}
-                className="inline-flex items-center justify-center text-[13px] md:text-[14px] font-bold uppercase tracking-[0.2em] px-10 md:px-12 py-4 md:py-5 rounded-full transition-all duration-500 shadow-xl hover:bg-opacity-90"
+            <div className="flex flex-col md:flex-row gap-12 md:items-end justify-between pt-12 border-t border-background/10">
+              <a
+                href="mailto:jgalcorea@gmail.com"
+                className="btn-inverted inline-flex items-center justify-center text-[13px] md:text-[14px] font-bold uppercase tracking-[0.2em] px-10 md:px-12 py-4 md:py-5 rounded-full shadow-xl w-fit"
               >
                 Inquire / Project Start
               </a>
-              
-              <div className="flex flex-wrap gap-8 text-[12px] uppercase tracking-widest font-mono">
-                <a href="https://www.behance.net/jerecorea" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Behance</a>
-                <a href="https://www.instagram.com/rcrs.dev?igsh=MXYxa3NkMTdzNmRxZg==" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">Instagram</a>
-                <a href="https://x.com/jerecorea" target="_blank" rel="noopener noreferrer" className="hover:opacity-60 transition-opacity">X (Twitter)</a>
+
+              <div className="flex flex-wrap gap-8 text-[11px] uppercase tracking-[0.15em] font-mono">
+                <a href="https://www.behance.net/jerecorea" target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-opacity border-b border-transparent hover:border-background/40 pb-0.5">Behance</a>
+                <a href="https://www.instagram.com/rcrs.dev?igsh=MXYxa3NkMTdzNmRxZg==" target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-opacity border-b border-transparent hover:border-background/40 pb-0.5">Instagram</a>
+                <a href="https://x.com/jerecorea" target="_blank" rel="noopener noreferrer" className="opacity-50 hover:opacity-100 transition-opacity border-b border-transparent hover:border-background/40 pb-0.5">X (Twitter)</a>
               </div>
             </div>
           </FadeIn>

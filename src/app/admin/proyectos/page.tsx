@@ -48,7 +48,7 @@ export default function ProjectsAdminPage() {
     <FadeIn>
       <div className="flex items-center justify-between mb-8">
         <h1 className="font-mono text-xl uppercase tracking-tight font-bold">Projects</h1>
-        <Link href="/admin/proyectos/nuevo" className="font-mono text-[11px] uppercase tracking-widest bg-foreground text-background px-5 py-2.5 hover:opacity-80 transition-opacity">
+        <Link href="/admin/proyectos/nuevo" className="btn-solid font-mono text-[11px] uppercase tracking-widest px-5 py-2.5">
           + New Project
         </Link>
       </div>
@@ -69,7 +69,7 @@ export default function ProjectsAdminPage() {
                 </div>
               </div>
               <div className="flex items-center gap-4 shrink-0">
-                <Link href={`/admin/proyectos/${p._id}/editar`} className="font-mono text-[11px] uppercase tracking-widest border border-border px-4 py-1.5 hover:border-foreground transition-colors">
+                <Link href={`/admin/proyectos/${p._id}/editar`} className="btn-outline font-mono text-[11px] uppercase tracking-widest px-4 py-1.5">
                   Edit
                 </Link>
                 <button onClick={() => handleDelete(p._id)} className="font-mono text-[11px] uppercase tracking-widest text-red-500 hover:text-red-400 transition-colors">

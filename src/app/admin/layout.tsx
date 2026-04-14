@@ -39,7 +39,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 href={link.href}
                 className={`px-4 py-3 text-[12px] uppercase tracking-widest rounded-sm transition-all duration-300 ${
                   isActive
-                    ? 'bg-foreground text-background'
+                    ? 'btn-solid'
                     : 'hover:bg-foreground/10 text-foreground'
                 }`}
               >

@@ -102,7 +102,7 @@ export default function SettingsPage() {
         </div>
 
         <div className="flex gap-4 pt-2">
-          <button type="submit" disabled={saving} className="font-mono text-[11px] uppercase tracking-widest bg-foreground text-background px-10 py-4 hover:opacity-80 transition-opacity disabled:opacity-40">
+          <button type="submit" disabled={saving} className="btn-solid font-mono text-[11px] uppercase tracking-widest px-10 py-4 disabled:opacity-40">
             {saving ? 'Saving...' : 'Save Settings'}
           </button>
         </div>
